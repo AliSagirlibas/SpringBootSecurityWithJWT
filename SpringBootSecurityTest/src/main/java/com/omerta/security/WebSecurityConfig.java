@@ -41,9 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          .and()
          .authorizeRequests().antMatchers("/api/secure2").hasAnyRole("OPERATOR","ADMIN")
          .and()
-         .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+         //.addFilter(new JWTAuthenticationFilter(authenticationManager()))
          .addFilter(new JWTAuthorizationFilter(authenticationManager()))         
-         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) ;
+         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) ;
          
          //.maximumSessions(2);
          
